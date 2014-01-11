@@ -9,15 +9,15 @@ function onYouTubeApiLoad() {
     loadPlaylist('PLD1342C1016742CE7');
 }
 
-function loadPlaylist(playlistID) {
+function loadPlaylist(id) {
     // Use the JavaScript client library to create a search.list() API call.
-    var request = gapi.client.youtube.playlists.list({
+    var request = gapi.client.youtube.playlistItems.list({
         part: 'snippet',
-        id: playlistID
+        playlistId: id
     });
     
     // Send the request to the API server
-    request.execute(showRAW);
+    request.execute(showHTML);
 }
 
 // Helper function to display JavaScript value on HTML page.

@@ -6,18 +6,18 @@ function onClientLoad() {
 // Called automatically when YouTube API interface is loaded
 function onYouTubeApiLoad() {
     gapi.client.setApiKey('AIzaSyDzKSvV_zc2u0ib91Bneh7s0XxOLBYvRg4');
-    search('Tiger woods');
+    loadPlaylist('PLD1342C1016742CE7');
 }
 
-function search(s) {
+function loadPlaylist(playlistID) {
     // Use the JavaScript client library to create a search.list() API call.
-    var request = gapi.client.youtube.search.list({
+    var request = gapi.client.youtube.playlists.list({
         part: 'snippet',
-        q: s
+        id: playlistID
     });
     
     // Send the request to the API server
-    request.execute(showHTML);
+    request.execute(showRAW);
 }
 
 // Helper function to display JavaScript value on HTML page.
